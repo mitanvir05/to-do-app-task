@@ -44,4 +44,24 @@
 }
 
 
+/* Media queries for smaller screens */
+@media screen and (max-width: 600px) {
+  .app {
+    max-width: 100%; 
+    border-radius: 0; 
+  }
+}
 
+/* Media queries for medium screens */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .app {
+    max-width: 800px; 
+  }
+}
+
+/* Media queries for large screens */
+@media screen and (min-width: 1025px) {
+  .app {
+    max-width: 1200px; 
+  }
+}

@@ -1,6 +1,8 @@
 import  { useState, useEffect } from "react";
 import TodoItem from "./TodoItem";
 import "./App.css";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -21,6 +23,7 @@ function App() {
     if (newTodo.trim()) {
       setTodos([...todos, { text: newTodo, completed: false }]);
       setNewTodo("");
+      toast.success('To-Do item added successfully!');
     }
   };
 
@@ -29,10 +32,14 @@ function App() {
       idx === index ? { ...todo, completed: !todo.completed } : todo
     );
     setTodos(updatedTodos);
+    const action = updatedTodos[index].completed ? 'completed' : 'marked incomplete';
+    toast.info(`To-Do item ${action}`);
+  
   };
 
   const deleteTodo = (index) => {
     setTodos(todos.filter((_, idx) => idx !== index));
+    toast.error('To-Do item deleted successfully!');
   };
 
   return (
@@ -58,6 +65,7 @@ function App() {
           />
         ))}
       </div>
+      <ToastContainer />
     </div>
   );
 }
