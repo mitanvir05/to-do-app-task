@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import "./App.css";
+import  { useState, useEffect } from "react";
 import TodoItem from "./TodoItem";
+import "./App.css";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -24,6 +24,17 @@ function App() {
     }
   };
 
+  const toggleComplete = (index) => {
+    const updatedTodos = todos.map((todo, idx) =>
+      idx === index ? { ...todo, completed: !todo.completed } : todo
+    );
+    setTodos(updatedTodos);
+  };
+
+  const deleteTodo = (index) => {
+    setTodos(todos.filter((_, idx) => idx !== index));
+  };
+
   return (
     <div className="app">
       <h1>To-Do List</h1>
@@ -38,7 +49,13 @@ function App() {
       </div>
       <div className="todo-list">
         {todos.map((todo, index) => (
-          <TodoItem key={index} todo={todo} />
+          <TodoItem
+            key={index}
+            todo={todo}
+            index={index}
+            toggleComplete={toggleComplete}
+            deleteTodo={deleteTodo}
+          />
         ))}
       </div>
     </div>

@@ -1,0 +1,38 @@
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+.todo-item.completed {
+    background-color: #f2f2f2; 
+  }
+  
+  .todo-item.completed span {
+    text-decoration: line-through;
+    color: #999;
+  }
+  
+  .icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .icon {
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .icon.completed-icon {
+    color: green;
+  }
+  
+  .icon:hover {
+    color: darkred;
+  }
