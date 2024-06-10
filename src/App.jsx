@@ -52,7 +52,7 @@ function App() {
           onChange={(e) => setNewTodo(e.target.value)}
           placeholder="Add a new to-do"
         />
-        <button onClick={addTodo}>Add</button>
+        <button onClick={addTodo}>Add ToDo</button>
       </div>
       <div className="todo-list">
         {todos.map((todo, index) => (
